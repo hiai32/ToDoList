@@ -31,10 +31,16 @@
                     </a>
                     <i class="bi bi-pencil-square"></i>
                     <p>メモ帳</p>
-                    <i class="bi bi-plus-circle"></i>
-                    <p>タスクの追加</p>
+                    <a href="{% url 'add' %}">
+                        <i class="bi bi-plus-circle"></i>
+                        <p>タスクの追加</p>
+                    </a>
                 </div>
                 <div class="col-md-11">
+                    <div id="sub_title">
+                        <h3>ホーム</h3>
+                        <hr>
+                    </div>
                     <table class="table table-bordered table-striped mx-auto">
                         <thead>
                             <tr>
@@ -43,9 +49,29 @@
                                 <th>期限</th>
                                 <th>優先度</th>
                                 <th>説明</th>
+                                <th>詳細</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            {% if tasks %}
+                            {% for task in tasks %}
+                            <tr>
+                                <td>{{ task.id }}</td>
+                                <td>{{ task.title }}</td>
+                                <td>{{ task.due }}</td>
+                                <td>{{ task.priority }}</td>
+                                <td>{{ task.explanation }}</td>
+                                <td class="align-middle p-1">
+                                    <form action="" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="id" value="{{ task.id }}">
+                                        <button type="submit" id="delete" class="btn btn-primary d-inline-flex align-items-center">削除</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
                     </table>
                 </div>
             </div>

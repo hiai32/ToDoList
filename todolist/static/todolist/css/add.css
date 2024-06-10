@@ -20,20 +20,18 @@ nav {
     margin-bottom: 0;
 }
 
-.bi-house-door {
+.bi-plus-circle {
     color: orange;
 }
 
-#sub_title {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.table {
+form {
     max-width: 800px;
 }
 
-#delete {
-    max-width: 60px;
-    max-height: 30px;
+.form-group {
+    margin-bottom: 20px;
+}
+
+#priorityInput {
+    max-width: 300px;
 }
