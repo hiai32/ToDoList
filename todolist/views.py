@@ -4,9 +4,13 @@ from todolist.models import Task
 # Create your views here.
 def home(request):
     if request.method == 'POST':
-        id = request.POST['id']
-        task = Task.objects.get(pk=id)
-        task.delete()
+        if 'delete' in request.POST:
+            id = request.POST['id']
+            task = Task.objects.get(pk=id)
+            task.delete()
+        elif 'update' in request.POST:
+            id = request.POST['id']
+            return redirect(update, id)
 
     context = {
         'tasks': Task.objects.all()
@@ -26,3 +30,20 @@ def add(request):
         return redirect(home)
 
     return render(request, 'todolist/add.html')
+
+def update(request, id):
+    task = Task.objects.get(pk=id)
+    if request.method == 'POST':
+        task.title = request.POST['title']
+        task.due = request.POST['due']
+        task.priority = request.POST['priority']
+        task.explanation = request.POST['explanation']
+        task.save()
+
+        return redirect(home)
+
+    context = {
+        'task': task
+    }
+
+    return render(request, 'todolist/update.html', context)

@@ -65,7 +65,8 @@
                                     <form action="" method="post">
                                         {% csrf_token %}
                                         <input type="hidden" name="id" value="{{ task.id }}">
-                                        <button type="submit" id="delete" class="btn btn-primary d-inline-flex align-items-center">削除</button>
+                                        <button type="submit" class="btn btn-primary d-inline-flex align-items-center detail" name="update">変更</button>
+                                        <button type="submit" class="btn btn-danger d-inline-flex align-items-center detail" name="delete">削除</button>
                                     </form>
                                 </td>
                             </tr>
