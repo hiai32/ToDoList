@@ -1,0 +1,19 @@
+form {
+    max-width: 500px;
+    margin-top: 50px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+button {
+    color: white !important;
+    background-color: orange !important;
+    margin-bottom: 20px !important;
+}
+
+a {
+    text-decoration: none !important;
+    color: orange !important;
+}

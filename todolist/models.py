@@ -7,3 +7,4 @@ class Task(models.Model):
     priority = models.IntegerField()
     explanation = models.TextField()
     isAchieved = models.BooleanField(default=False)
+    userId = models.IntegerField()
