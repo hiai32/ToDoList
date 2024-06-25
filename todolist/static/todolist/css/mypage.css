@@ -1,0 +1,34 @@
+body {
+    padding-top: 100px;
+}
+
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.bi {
+    font-size: 30px;
+}
+
+nav {
+    background-color: orange;
+}
+
+#title {
+    font-family: fantasy;
+    margin-bottom: 0;
+}
+
+#account_data {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.user_data {
+    margin: 0px 10px 0px 10px;
+}
+
+#task_data {
+    margin-bottom: 30px;
+}

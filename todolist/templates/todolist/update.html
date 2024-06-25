@@ -11,27 +11,29 @@
     <body>
         <nav class="navbar fixed-top">
             <div class="container">
-                <a href="{% url 'home' user_id %}"><h3 id="title" class="navbar-text">ToDoList</h3></a>
+                <a href="{% url 'home' userId %}"><h3 id="title" class="navbar-text">ToDoList</h3></a>
                 <form action="" method="post">
                     <div class="input-group">
                         <input type="search" class="form-control" placeholder="キーワード">
                         <button type="submit" class="btn btn-info">検索</button>
                     </div>
                 </form>
-                <i class="bi bi-person-circle"></i>
+                <a href="{% url 'mypage' userId %}">
+                    <i class="bi bi-person-circle"></i>
+                </a>
             </div>
         </nav>
 
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-1 text-center">
-                    <a href="{% url 'home' user_id %}">
+                    <a href="{% url 'home' userId %}">
                         <i class="bi bi-house-door"></i>
                         <p>ホーム</p>
                     </a>
                     <i class="bi bi-pencil-square"></i>
                     <p>メモ帳</p>
-                    <a href="{% url 'add' user_id %}">
+                    <a href="{% url 'add' userId %}">
                         <i class="bi bi-plus-circle"></i>
                         <p>タスクの追加</p>
                     </a>
