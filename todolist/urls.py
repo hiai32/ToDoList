@@ -6,4 +6,5 @@ urlpatterns = [
     path('add/<int:user_id>/', views.add, name='add'),
     path('update/<int:user_id>/<int:task_id>/', views.update, name='update'),
     path('mypage/<int:user_id>/', views.mypage, name='mypage'),
+    path('search/<int:user_id>/', views.search, name='search'),
 ]

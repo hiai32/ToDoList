@@ -1,0 +1,35 @@
+body {
+    padding-top: 100px;
+}
+
+a {
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.bi {
+    font-size: 30px;
+}
+
+nav {
+    background-color: orange;
+}
+
+#title {
+    font-family: fantasy;
+    margin-bottom: 0;
+}
+
+#sub_title {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.table {
+    max-width: 800px;
+}
+
+.detail {
+    max-width: 60px;
+    max-height: 30px;
+}

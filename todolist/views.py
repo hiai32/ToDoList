@@ -1,5 +1,6 @@
 import math
 from django.shortcuts import render, redirect
+from django.db.models import Q
 from todolist.models import Task
 from account.models import User
 
@@ -89,3 +90,15 @@ def mypage(request, user_id):
     }
     
     return render(request, 'todolist/mypage.html', context)
+
+def search(request, user_id):
+    if request.method == 'POST':
+        keyword = request.POST['search']
+        tasks = Task.objects.filter(Q(title__icontains=keyword) | Q(explanation__icontains=keyword))
+
+    context = {
+        'userId': user_id,
+        'tasks': tasks,
+    }
+
+    return render(request, 'todolist/search.html', context)
