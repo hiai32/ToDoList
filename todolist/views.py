@@ -1,4 +1,3 @@
-import math
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from todolist.models import Task
@@ -21,9 +20,18 @@ def home(request, user_id):
             task = Task.objects.get(pk=task_id)
             task.delete()
 
+    tasks = Task.objects.filter(userId=user_id, isAchieved=0)
+    if 'sort' in request.GET:
+        if request.GET['sort'] == 'add':
+            tasks = tasks.order_by('id')
+        elif request.GET['sort'] == 'due':
+            tasks = tasks.order_by('due')
+        elif request.GET['sort'] == 'priority':
+            tasks = tasks.order_by('priority')
+
     context = {
         'userId': user_id,
-        'tasks': Task.objects.filter(userId=user_id, isAchieved=0),
+        'tasks': tasks,
     }
 
     return render(request, 'todolist/home.html', context)
@@ -70,11 +78,11 @@ def update(request, user_id, task_id):
 def mypage(request, user_id):
     user = User.objects.get(pk=user_id)
     
-    factorial = 1
+    hold = 1
     level = 1
-    while factorial <= user.achievedTasks:
+    while hold <= user.achievedTasks:
         level += 1
-        factorial = math.factorial(level)
+        hold = level**2
 
 
     if user.addedTasks == 0:

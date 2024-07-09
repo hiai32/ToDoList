@@ -43,6 +43,9 @@
                     <div id="sub_title">
                         <h3>ホーム</h3>
                         <hr>
+                        <button><a href="{% url 'home' userId %}?sort=add"class="mx-1">追加順</a></button>
+                        <button><a href="{% url 'home' userId %}?sort=due" class="mx-1">期限順</a></button>
+                        <button><a href="{% url 'home' userId %}?sort=priority" class="mx-1">優先度順</a></button>
                     </div>
                     <table class="table table-bordered table-striped mx-auto">
                         <thead>
